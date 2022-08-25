@@ -19,3 +19,6 @@ Pāḷī spellchecker
 Sandhi splitter
 
 Translation tool
+
+
+look for [discussions](https://github.com/Devamitta/online-tool-for-db/discussions) for details
