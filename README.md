@@ -1,5 +1,4 @@
-# online-tool-for-db
-Developing the tool for working with data base by multiple people.
+
 ### Dictionary Proposal
 **Why do we want to do this?**
 
