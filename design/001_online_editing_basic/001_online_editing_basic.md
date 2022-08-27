@@ -26,6 +26,7 @@ The following diagram shows the current purely local workflow for editing and di
 @startuml
 skinparam maxMessageSize 150
 skinparam wrapWidth 150
+skinparam dpi 100
 
 box Local entities
 actor "Editor" as editor
@@ -63,6 +64,7 @@ The following diagrams show the workflows for the initial one-time data migratio
 @startuml
 skinparam maxMessageSize 150
 skinparam wrapWidth 150
+skinparam dpi 100
 
 box Local entities
 actor "Editor" as editor
@@ -82,6 +84,7 @@ end
 @startuml
 skinparam maxMessageSize 150
 skinparam wrapWidth 150
+skinparam dpi 100
 
 box Local entities
 actor "Editor" as editor
@@ -126,6 +129,7 @@ The following diagram shows the data base model for the dictionary data:
 ```plantuml
 @startuml
 skinparam wrapWidth 650
+skinparam dpi 100
 
 hide circle 
 entity "Dictionary" as dict {
@@ -186,11 +190,11 @@ note right of meaning_translation: application logic ensures that only one meani
 ### Advantages of the Online Workflow
 
 * Online collaboration:
-  * After the one-time merge procedure, the editors work an shared data which is always synchronized
-  * It is easy to invite further collaborators for other target languages
-  * Correctness of the web applications import and export features is easily verifiable: import and export of CSV must yield the same CSV again
+  * After the one-time merge procedure, the editors work on shared data which is always synchronized.
+  * It is easy to invite further collaborators for other target languages.
+  * Correctness of the web applications import and export features is easily verifiable: import and export of CSV must yield the same CSV again.
 * Support for multiple meanings for any headword.
-  * This reflects the common approach of dictionaries. It is hard to achieve with a spreadsheet database as for each meaning one column has to be reserved.
+  * This reflects the common approach of dictionaries. This is hard to achieve with a spreadsheet database as for each meaning one column has to be reserved.
 
 ### Disadvantages of the Online Workflow
 

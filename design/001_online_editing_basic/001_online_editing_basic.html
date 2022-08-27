@@ -15,11 +15,11 @@
 </ul>
 <h2 id="current-local-workflow">Current Local Workflow</h2>
 <p>The following diagram shows the current purely local workflow for editing and dictionary generation.</p>
-<p><img src="plantuml-images/58588d470cac3dfbdd83671cc8d7262588400700.svg" /></p>
+<p><img src="plantuml-images/649c09d650f240046904c33c400343b1673c37a4.svg" /></p>
 <h2 id="online-editing-workflow">Online Editing Workflow</h2>
 <p>The following diagrams show the workflows for the initial one-time data migration, online editing, CSV export from the web-application and local dictionary generation:</p>
-<p><img src="plantuml-images/672b552dc7b771af59be83b84d0078229b073c92.svg" /></p>
-<p><img src="plantuml-images/bee76d83c87fb9c160a1cbfea27d26dd2ef93257.svg" /></p>
+<p><img src="plantuml-images/ec9d8e4f2c3fb7c6fbe5adc290df38ae2fff1c92.svg" /></p>
+<p><img src="plantuml-images/1af9fcb91cc2b3b5d8d7d49c1eabf2026ccafe8a.svg" /></p>
 <p>The following diagram shows the data base model for the dictionary data:</p>
 <ul>
 <li>Each dictionary has a number of entries (headwords)</li>
@@ -27,7 +27,7 @@
 <li>Each headword can have any number of meanings in the dictionary’s primary target language (i.e. here English)</li>
 <li>Each meaning can have translations in any secondary target language defined for this dictionary</li>
 </ul>
-<p><img src="plantuml-images/f2c8ed02621cd9453a03f7081fd4ee59f41b5bea.svg" /></p>
+<p><img src="plantuml-images/23863f29fb096dc1591fef2f69cb4891654a7a88.svg" /></p>
 <h3 id="further-features-of-the-online-editing-workflow">Further Features of the Online Editing Workflow</h3>
 <ul>
 <li>Access control: The following user rights and roles are supported:
@@ -60,13 +60,13 @@
 <ul>
 <li>Online collaboration:
 <ul>
-<li>After the one-time merge procedure, the editors work an shared data which is always synchronized</li>
-<li>It is easy to invite further collaborators for other target languages</li>
-<li>Correctness of the web applications import and export features is easily verifiable: import and export of CSV must yield the same CSV again</li>
+<li>After the one-time merge procedure, the editors work on shared data which is always synchronized.</li>
+<li>It is easy to invite further collaborators for other target languages.</li>
+<li>Correctness of the web applications import and export features is easily verifiable: import and export of CSV must yield the same CSV again.</li>
 </ul></li>
 <li>Support for multiple meanings for any headword.
 <ul>
-<li>This reflects the common approach of dictionaries. It is hard to achieve with a spreadsheet database as for each meaning one column has to be reserved.</li>
+<li>This reflects the common approach of dictionaries. This is hard to achieve with a spreadsheet database as for each meaning one column has to be reserved.</li>
 </ul></li>
 </ul>
 <h3 id="disadvantages-of-the-online-workflow">Disadvantages of the Online Workflow</h3>
