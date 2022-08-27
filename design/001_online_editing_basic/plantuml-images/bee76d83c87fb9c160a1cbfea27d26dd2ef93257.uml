@@ -1,0 +1,35 @@
+@startuml
+skinparam maxMessageSize 150
+skinparam wrapWidth 150
+
+box Local entities
+actor "Editor" as editor
+collections "CSV Export" as csv
+control "Dictionary\nGenerator" as dict_gen
+collections "Generated\nDictionary" as gen_dict
+end box
+box Cloud instance #SkyBlue
+control "Web\nApplication" as webapp
+database "Database" as web_db 
+end box
+
+
+group dictionary editing
+editor -> webapp: edits the dictionary entries
+webapp -> web_db: update the database
+end group
+
+group dictionary generation
+editor -> webapp: choose subset of target languages for export
+webapp <- web_db: extract data
+webapp -> editor: download CSV file
+group Existing Dictionary Generation Process
+editor -> dict_gen: invoke
+csv <- dict_gen: import and process the CSV to generate the inflections, etc.
+dict_gen -> gen_dict: produce the dictionary
+end
+
+
+end group
+
+@enduml

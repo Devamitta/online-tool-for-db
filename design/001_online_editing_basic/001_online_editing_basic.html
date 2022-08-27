@@ -1,0 +1,81 @@
+<p>Falko, 27.08.2022</p>
+<h1 id="online-plattform-for-with-basic-functionality-for-dictionary-editing">Online Plattform for with Basic Functionality for Dictionary Editing</h1>
+<p>This document describes the steps necessary for switching to an online editing for the group of dictionary editors working on the DPD and related dictionaries. The idea is to cover the minimal requirements necessary to enable an online editing of the data base in a manner that allows for a synchronized access by multiple editors to the same data, without introducing any disadvantages for the editors. An outline of its features is listed in the subsequent section.</p>
+<h2 id="outline-of-the-features">Outline of the Features</h2>
+<ul>
+<li>Multiple editors can access the dictionary data concurrently.</li>
+<li>Each dictionary entry in the data base reflects the superset of the DPD and DPS ODT columns, so that both existing sets of data can merged and imported into the application.</li>
+<li>Multiple target languages are supported.</li>
+<li>Editors can assume two different roles:
+<ul>
+<li>Dictionary Editor: Full access to all entries</li>
+<li>Language Editor: Access only to a subset of the target languages that are modelled in the respective dictionary</li>
+</ul></li>
+<li>The dictionary generation remains as it is currently: a local process invoked by the editor with the already exising tools. The only difference is that the input data now is exported from the web application’s central DB.</li>
+</ul>
+<h2 id="current-local-workflow">Current Local Workflow</h2>
+<p>The following diagram shows the current purely local workflow for editing and dictionary generation.</p>
+<p><img src="plantuml-images/58588d470cac3dfbdd83671cc8d7262588400700.svg" /></p>
+<h2 id="online-editing-workflow">Online Editing Workflow</h2>
+<p>The following diagrams show the workflows for the initial one-time data migration, online editing, CSV export from the web-application and local dictionary generation:</p>
+<p><img src="plantuml-images/672b552dc7b771af59be83b84d0078229b073c92.svg" /></p>
+<p><img src="plantuml-images/bee76d83c87fb9c160a1cbfea27d26dd2ef93257.svg" /></p>
+<p>The following diagram shows the data base model for the dictionary data:</p>
+<ul>
+<li>Each dictionary has a number of entries (headwords)</li>
+<li>Each headword object features the superset of all the columns currently used in DPD and DPS</li>
+<li>Each headword can have any number of meanings in the dictionary’s primary target language (i.e. here English)</li>
+<li>Each meaning can have translations in any secondary target language defined for this dictionary</li>
+</ul>
+<p><img src="plantuml-images/f2c8ed02621cd9453a03f7081fd4ee59f41b5bea.svg" /></p>
+<h3 id="further-features-of-the-online-editing-workflow">Further Features of the Online Editing Workflow</h3>
+<ul>
+<li>Access control: The following user rights and roles are supported:
+<ul>
+<li>Dictionary Owner:
+<ul>
+<li>full access to all fields of the dictionary entries</li>
+<li>invite other users to dictionary and assign right and role</li>
+</ul></li>
+<li>Dictionary Editor: full
+<ul>
+<li>full access to all fields of the dictionary entries</li>
+</ul></li>
+<li>Language Editor:
+<ul>
+<li>Online write access to meaning translations of a defined subset of target languages</li>
+</ul></li>
+</ul></li>
+<li>Prevention of concurrent access:
+<ul>
+<li>If two users modify the same entry concurrently, a corresponding message is shown to the second user attempting to submit his updates, allowing him to save his changes elsewhere manually and update the entry again. (other more sophisticated locking mechanisms are also conceivable for the future should that become necessary, e.g. timed locks in the database which would prevent this situation beforehand)</li>
+</ul></li>
+<li>Search form for dictionary entries
+<ul>
+<li>As a help for the translators, it is also possible to search for words where the a meaning given in primary target language has been more recently modified than one of its translations (indicating it might need an update).</li>
+</ul></li>
+</ul>
+<h2 id="comparison-of-the-current-workflow-and-the-described-workflow-with-online-editing">Comparison of the Current Workflow and the Described Workflow with Online Editing</h2>
+<h3 id="advantages-of-the-online-workflow">Advantages of the Online Workflow</h3>
+<ul>
+<li>Online collaboration:
+<ul>
+<li>After the one-time merge procedure, the editors work an shared data which is always synchronized</li>
+<li>It is easy to invite further collaborators for other target languages</li>
+<li>Correctness of the web applications import and export features is easily verifiable: import and export of CSV must yield the same CSV again</li>
+</ul></li>
+<li>Support for multiple meanings for any headword.
+<ul>
+<li>This reflects the common approach of dictionaries. It is hard to achieve with a spreadsheet database as for each meaning one column has to be reserved.</li>
+</ul></li>
+</ul>
+<h3 id="disadvantages-of-the-online-workflow">Disadvantages of the Online Workflow</h3>
+<ul>
+<li>Offline editing is no longer possible. The impact of this should be considered thoroughly, as some editors may reside in southeast-asian countries, where power cut-offs and blackouts happen on a regular basis.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+</ul>
+<section class="footnotes" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1" role="doc-endnote"><p>In principle, it would also be possible to support offline editing. But the implementation of that would most likely require a multiple of the effort that is needed for the basic online editing functionality that is described in this document. This would be a fragile process needing a lot of attendance; for instance the case where the cloud instance has already been updated and the user tries to import data in an old format.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>

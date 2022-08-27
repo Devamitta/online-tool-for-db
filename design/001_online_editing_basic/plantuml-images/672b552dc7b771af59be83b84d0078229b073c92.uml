@@ -1,0 +1,16 @@
+@startuml
+skinparam maxMessageSize 150
+skinparam wrapWidth 150
+
+box Local entities
+actor "Editor" as editor
+collections "CSV Export" as csv
+control "Merge-Tool" as merge_tool
+end box
+
+group one-time data migration
+editor -> merge_tool: invoke
+csv -> merge_tool: input DPD and DPS CSVs
+merge_tool -> csv: output merged CSV data together with report about entries where manual merge is necessary
+end 
+@enduml
