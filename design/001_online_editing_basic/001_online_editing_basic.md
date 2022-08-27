@@ -26,7 +26,7 @@ The following diagram shows the current purely local workflow for editing and di
 @startuml
 skinparam maxMessageSize 150
 skinparam wrapWidth 150
-skinparam dpi 100
+skinparam dpi 300
 
 box Local entities
 actor "Editor" as editor
@@ -64,7 +64,7 @@ The following diagrams show the workflows for the initial one-time data migratio
 @startuml
 skinparam maxMessageSize 150
 skinparam wrapWidth 150
-skinparam dpi 100
+skinparam dpi 300
 
 box Local entities
 actor "Editor" as editor
@@ -84,7 +84,7 @@ end
 @startuml
 skinparam maxMessageSize 150
 skinparam wrapWidth 150
-skinparam dpi 100
+skinparam dpi 300
 
 box Local entities
 actor "Editor" as editor
@@ -129,7 +129,7 @@ The following diagram shows the data base model for the dictionary data:
 ```plantuml
 @startuml
 skinparam wrapWidth 650
-skinparam dpi 100
+skinparam dpi 300
 
 hide circle 
 entity "Dictionary" as dict {
