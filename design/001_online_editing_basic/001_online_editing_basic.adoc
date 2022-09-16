@@ -56,7 +56,7 @@ editing and dictionary generation.
 
 [.thumb]
 [plantuml, uml_figures/current_workflow]
-....
+----
 @startuml
 skinparam maxMessageSize 150
 skinparam wrapWidth 150
@@ -86,7 +86,7 @@ end
 end group
 
 @enduml
-....
+----
 
 === Online Editing Workflow
 
