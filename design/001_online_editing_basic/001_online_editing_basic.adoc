@@ -1,8 +1,9 @@
 = Online Platform for with Basic Functionality for Dictionary Editing
 Falko 
-v1.1, 2022-09-02
-:pdf-theme: theme.yml
-
+v1.1, 2022-09-16
+//:pdf-theme: theme.yml
+:pdf-theme: default-with-fallback-font
+:title-page:
 
 // create pdf with plantuml figures: https://fiveandahalfstars.ninja/blog/2017/2017-05-01-plantuml-and-pdf
 
@@ -16,7 +17,7 @@ v1.1, 2022-09-02
 | Author
 
 | 1.1
-| 
+| 2022-09-16 
 | Added analysis of current ODS format.
 | Falko
 
@@ -294,14 +295,14 @@ a|
 | <meaning>[; meaning2 [; ...]]
 |
 |
-| What does "in context" mean here? Is this the colloquial meaning?
+| #What does "in context" mean here? Is this the colloquial meaning?#
 
 | "Non IA"
 |
 |
 |
 |
-| What does "Non IA" stand for? What are possible values?
+| #What does "Non IA" stand for? What are possible values?#
 
 | "Sanskrit"
 | –
